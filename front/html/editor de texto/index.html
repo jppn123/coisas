@@ -1,0 +1,97 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8" />
+            <link rel="stylesheet" href="icones.css">
+            <link rel="stylesheet" href="editor.css">
+        </head>
+        
+        <body onkeydown="contaChars(event)">
+
+            
+            <div id="fullEditor">
+                <div id="hotbarEditor">
+                    <button class="botao" onclick="document.execCommand('bold')" title="Negrito"><span class="icStyle ic-bold"></button>
+                    <button class="botao" onclick="document.execCommand('italic')" title="Itálico"><span class="icStyle ic-italic"></button>
+                    <button class="botao" onclick="document.execCommand('strikeThrough')" title="Cortado"><span class="icStyle ic-strike"></button>
+                    <button class="botao" onclick="document.execCommand('underline')" title="Sublinhado"><span class="icStyle ic-underline"></button>
+                    
+                    <button class="botao" onclick="document.execCommand('justifyLeft')" title="Alinhar a esquerda"><span class="icStyle ic-align-left"></button>
+                    <button class="botao" onclick="document.execCommand('justifyCenter')" title="Centralizar"><span class="icStyle ic-align-center"></button>
+                    <button class="botao" onclick="document.execCommand('justifyRight')" title="Alinhar a direita"><span class="icStyle ic-align-right"></button>
+                    <button class="botao" onclick="document.execCommand('justifyFull')" title="Justificar"><span class="icStyle ic-align-justify"></button>
+                </div>
+
+                <div id="editor" style="font-size: 12pt;font-family: Arial;" oninput="contaChars()"  onclick="this.contentEditable=true;this.focus();" contenteditable></div></div>
+            
+                <table style="float: right;">
+                    <td>
+                        <div id="contChars">0</div>
+                    </td>
+                    <td>
+                        de 300
+                    </td>
+                </table>
+                
+    
+            </div>
+        <script>
+                function paraDeEscrever(e) {
+                    //so será aceito o botão backspace ou se algo estiver selecionado
+                    //console.log(e.keyCode)
+                    if(e.keyCode == 8 || document.getSelection().type == "Range"){
+                        this.removeEventListener('keydown', paraDeEscrever);
+                    }else{
+                        e.preventDefault();     
+                        return false;
+                    }
+                }
+                var cont = 0;
+                
+                function contaChars(event){
+                    var editorElement = document.getElementById("editor");
+                    var selection = window.getSelection();
+                    var range = document.createRange();
+
+                    document.getElementById("contChars").innerHTML = editorElement.textContent.length;
+                    console.log(editorElement.textContent.length)
+                    if(editorElement.textContent.length >= 300){
+                        editorElement.addEventListener('keydown', paraDeEscrever);
+                    }else{
+                        editorElement.removeEventListener('keydown', paraDeEscrever);
+                    }
+                    
+                    //1 não verificar o textcontent do elemento completo mas sim o length do texto dentro de uma div
+                    //passar o html do texto formatado para a linha abaixo
+                    
+                    if(editorElement.childNodes[editorElement.childNodes.length -1].textContent.length % 15 == 0 && 
+                    editorElement.childNodes[editorElement.childNodes.length -1].textContent.length > 1){ 
+                        
+                        if(editorElement.childNodes[editorElement.childNodes.length -1].innerHTML != "<br>"){
+                            editorElement.innerHTML += "<div><br></div>";
+                        }
+                        range.setStart(editorElement, editorElement.childNodes.length);
+                        range.collapse(true);
+                        selection.removeAllRanges();
+                        selection.addRange(range);
+                        
+                    }
+                    
+                    if (event.keyCode == 8 && editorElement.childNodes[editorElement.childNodes.length -1].textContent.length == 0 && editorElement.childNodes[editorElement.childNodes.length -1].innerHTML == "<br>") {
+                        
+                        editorElement.removeChild(editorElement.childNodes[editorElement.childNodes.length -1]);
+                        range.selectNodeContents(editorElement.childNodes[editorElement.childNodes.length - 1]);
+                        range.collapse(false);
+                        selection.removeAllRanges();
+                        selection.addRange(range);
+                    }
+                
+                    
+                } 
+                document.getElementById("editor").focus();
+                
+        </script>
+            <!-- <script src="editor.js"></script> -->
+        </body>
+        
+    </html>

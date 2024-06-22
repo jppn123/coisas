@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Select</title>
+</head>
+<body>
+
+    <label for="mySelect">Selecione uma opção:</label>
+    <select id="mySelect" onchange="mostrarOcultarCampoInput()">
+        <option value="sl">Opção 1</option>
+        <option value="d">Opção 2</option>
+    </select>
+
+    <div id="campoInput" style="display: none;">
+        <label for="meuInput">Campo Input:</label>
+        <input type="text" id="meuInput">
+    </div>
+
+    <script>
+        function mostrarOcultarCampoInput() {
+            var select = document.getElementById("mySelect");
+            var campoInput = document.getElementById("campoInput");
+
+            if (select.value === "d") {
+                campoInput.style.display = "block";
+            } else {
+                campoInput.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

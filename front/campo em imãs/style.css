@@ -1,0 +1,205 @@
+.quadradoAzul{
+    width: 200px;
+    height: 300px;
+    background-color: blue;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.quadradoRed{
+    width: 200px;
+    height: 300px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.letra {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}
+body{
+    background-color: black;
+}
+.cabeçalho{
+    position: absolute;
+    top: 5%;
+    right: 53%;
+    transform: translate(50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}
+.arrow1 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+}
+  
+.arrow2 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+}
+.arrow3 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+    
+}
+.arrow4 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+    animation-delay: 2s;
+}
+  
+.arrow5 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+    animation-delay: 2s;
+}
+.arrow6 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+    animation-delay: 2s;
+    
+}
+.arrow7 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+    animation-delay: 4.2s;
+}
+  
+.arrow8 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+    animation-delay: 4.2s;
+}
+.arrow9 {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid white;
+    border-left: none;
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    animation: moverArrow 7s infinite;
+    animation-delay: 4.2s;
+    
+}
+.line1{
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    width: 45%;
+    height: 2px;
+    background-color: white;
+}
+.line2{
+    position: fixed;
+    top: 65%;
+    left: 20%;
+    width: 45%;
+    height: 2px;
+    background-color: white;
+}
+.line3{
+    position: fixed;
+    top: 35%;
+    left: 20%;
+    width: 45%;
+    height: 2px;
+    background-color: white;
+}
+@keyframes moverArrow {
+    0%{
+        left: 65%;
+    }
+    50%{
+        left: 30%;
+    }
+    100%{
+        left: 24%;
+    }
+}

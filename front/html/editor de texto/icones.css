@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('fontello.ttf?92468104') format('truetype');
+
+}
+
+[class*=" ic-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+}
+ 
+.ic-align-left:before { content: '\e802'; }
+.ic-align-center:before { content: '\e803'; }
+.ic-align-right:before { content: '\e804'; }
+.ic-align-justify:before { content: '\e805'; }
+
+.ic-bold:before { content: '\e806'; }
+.ic-italic:before { content: '\e80c'; }
+.ic-strike:before { content: '\f0cc'; }
+.ic-underline:before { content: '\f0cd'; }
