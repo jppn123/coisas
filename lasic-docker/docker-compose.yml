@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "123"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "gep_db"
+    
+  backend:
+    image: gepback:1.0.0
+    restart: always
+    container_name: gep_backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    
+  frontend:
+    image: gepfrontend:1.0.0
+    restart: always
+    container_name: gep_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
